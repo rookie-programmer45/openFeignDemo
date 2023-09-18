@@ -1,0 +1,21 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: ljc-openfeign
+  cloud:
+    loadbalancer:
+      nacos:
+        enabled: true
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+feign:
+  client:
+    config:
+      MyFeign:
+        requestInterceptors: com.ljc.conf.MyHeaderInterceptor
+        connectTimeout: 1000
+        readTimeout: 3000
